@@ -4,11 +4,11 @@ chrome.commands.onCommand.addListener(function (command) {
             const subject = tabs[0].title
             console.log(subject)
 
-            const subjectPattern = /Item shared with you: "(.*?)"/;
+            const subjectPattern = /: (.)(.*?)\1/;
             const subjectMatch = subjectPattern.exec(subject);
 
-            if (subjectMatch && subjectMatch[1]) {
-                const textToCopy = subjectMatch[1];
+            if (subjectMatch && subjectMatch[2]) {
+                const textToCopy = subjectMatch[2];
                 copyToClipboard(textToCopy);
             }
         });
