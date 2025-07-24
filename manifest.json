@@ -1,17 +1,14 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Gmail Copy Extension",
     "version": "1.0",
     "description": "Copy text from Gmail subject",
     "permissions": [
         "activeTab",
-        "tabs"
+        "scripting"
     ],
     "background": {
-        "scripts": [
-            "background.js"
-        ],
-        "persistent": false
+        "service_worker": "background.js"
     },
     "commands": {
         "copy-gmail-subject": {
